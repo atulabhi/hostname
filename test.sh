@@ -4,7 +4,7 @@ set -x
 REPO=$1
 TAG=$2
 # Install dgoss
-curl -L https://raw.githubusercontent.com/aelsabbahy/goss/master/extras/dgoss/dgoss
+curl -L https://raw.githubusercontent.com/aelsabbahy/goss/master/extras/dgoss/dgoss -o ./dgoss
 chmod +rx ./dgoss && sudo mv /usr/local/bin/dgoss
 
 # Install goss
