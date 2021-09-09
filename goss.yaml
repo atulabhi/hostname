@@ -1,0 +1,11 @@
+process:
+  hostnameapp:
+    running: true
+http:
+  http://localhost:8081:
+    status: 200
+    allow-insecure: false
+    no-follow-redirects: false
+    timeout: 5000
+    body:
+    - I'm on "worker-1"

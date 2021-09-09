@@ -1,14 +1,23 @@
 package main
 
-import "fmt"
-import "os"
+import (
+    "fmt"
+    "log"
+     "os"
+    "net/http"
+)
 
 func main() {
-	fmt.Println("vim-go")
-	name, err := os.Hostname()
-	if err != nil {
-		panic(err)
-	}
 
-	fmt.Println("I'm on", name)
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        name, err := os.Hostname()
+        if err != nil {
+            log.Fatal(err)
+        }
+        fmt.Fprintf(w, "I'm on %q",name)
+    })
+
+    log.Fatal(http.ListenAndServe("0.0.0.0:8081", nil))
+
 }
+
